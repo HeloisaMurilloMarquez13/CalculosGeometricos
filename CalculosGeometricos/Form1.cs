@@ -511,7 +511,7 @@ public partial class Form1 : Form
         catch (Exception ex)
         {
             //Mostrar un mensaje de error al usuario indicando que se deben ingresar valores numéricos válidos
-            MessageBox.Show("¡Cuidado! Asegúrate de ingresar valores numéricos válidos. Detalles del error: " + ex.Message, "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("¡Cuidado! Asegúrate de ingresar valores numéricos válidos.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 
