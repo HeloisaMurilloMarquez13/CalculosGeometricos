@@ -2,7 +2,7 @@ namespace CalculosGeometricos;
 //Ejercicio Windows Forms Calculos Geométricos: Área y Perímetro
 //Nombre: Heloisa del Carmen Murillo Márquez
 //Semestre: 4to Semestre
-//Grupo: 4A
+//Grupo: 4°A
 //Fecha: 1° Abril de 2026
 //Descripción: Este programa permite al usuario seleccionar una figura geométrica (cuadrado, triángulo, rectángulo
 //,rombo, círculo, trapecio, pentágono, hexágono o paralelogramo) y un cálculo (área o perímetro).
@@ -507,10 +507,11 @@ public partial class Form1 : Form
                 }
             }
         }
-        //Manejo de excepciones para capturar errores de formato al ingresar datos no numéricos
+        //Para verificar si se ingresaron valores no numéricos o si se dejaron campos vacíos,
+        //lo que podría causar una excepción al intentar convertir el texto a números
         catch (Exception ex)
         {
-            //Mostrar un mensaje de error al usuario indicando que se deben ingresar valores numéricos válidos
+            //Mostrar un mensaje de error al usuario indicando que se deben ingresar valores numéricos válidos o no dejar espacios vacíos
             MessageBox.Show("¡Cuidado! Asegúrate de ingresar valores numéricos válidos.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
