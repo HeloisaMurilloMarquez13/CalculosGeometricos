@@ -6,13 +6,10 @@ namespace CalculosGeometricos;
 //Fecha: 1° Abril de 2026
 //Descripción: Este programa permite al usuario seleccionar una figura geométrica (cuadrado, triángulo, rectángulo
 //,rombo, círculo, trapecio, pentágono, hexágono o paralelogramo) y un cálculo (área o perímetro).
-//Dependiendo de la selección, se muestran los campos necesarios para ingresar las dimensiones de la figura.
-//Al hacer clic en el botón "Calcular", se realiza el cálculo correspondiente y se muestra el resultado en un cuadro de texto.
-//El programa también incluye validación para asegurarse de que se ingresen valores numéricos válidos.
 
 public partial class Form1 : Form
 {
-
+    //Declaración
     ComboBox cmbFiguras;
     ComboBox cmbCalculos;
     TextBox txtResultado, txtCampo1, txtCampo2, txtCampo3, txtCampo4;
@@ -151,6 +148,7 @@ public partial class Form1 : Form
 
     }
 
+    //Evento para mostrar campos según la figura y el cálculo seleccionado
     private void cmb_SelectedIndexChanged(object sender, EventArgs e)
     {
         //Limpiar campos y resultado al cambiar selección
@@ -169,10 +167,13 @@ public partial class Form1 : Form
         txtCampo3.Visible = false;
         txtCampo4.Visible = false;
 
+        //Verificar que se haya seleccionado una figura y un cálculo antes de mostrar campos
         if (this.cmbCalculos.SelectedIndex != -1 && this.cmbFiguras.SelectedIndex != -1)
         {
+            //Mostrar campos según la figura y el cálculo seleccionado
             switch (this.cmbFiguras.SelectedItem)
             {
+              
                 case "Cuadrado":
                     //Para que el fondo se vea azulito al seleccionar el cuadrado
                     this.BackColor = Color.LightBlue;
@@ -219,6 +220,7 @@ public partial class Form1 : Form
                     break;
 
                 case "Rombo":
+                    //Para que el fondo se vea amarillito al seleccionar el rombo
                     this.BackColor = Color.LightYellow;
                     if (this.cmbCalculos.SelectedItem == "Perímetro")
                     {
@@ -238,6 +240,7 @@ public partial class Form1 : Form
                     break;
 
                 case "Círculo":
+                    //Para que el fondo se vea rosadito al seleccionar el círculo
                     this.BackColor = Color.LightPink;
                     lblCampo1.Text = "Radio:";
                     lblCampo1.Visible = true;
@@ -245,6 +248,7 @@ public partial class Form1 : Form
                     break;
 
                 case "Trapecio":
+                    //Para que el fondo se vea azulito al seleccionar el trapecio
                     this.BackColor = Color.LightSkyBlue;
                     if (this.cmbCalculos.SelectedItem == "Perímetro")
                     {
@@ -276,6 +280,7 @@ public partial class Form1 : Form
                     break;
 
                 case "Pentágono":
+                    //Para que el fondo se vea anaranjadito al seleccionar el pentágono
                     this.BackColor = Color.LightSalmon;
                     if (this.cmbCalculos.SelectedItem == "Perímetro")
                     {
@@ -295,6 +300,7 @@ public partial class Form1 : Form
                     break;
 
                 case "Hexágono":
+                    //Para que el fondo se vea azulito al seleccionar el hexágono
                     this.BackColor = Color.LightSteelBlue;
                     if (this.cmbCalculos.SelectedItem == "Perímetro")
                     {
@@ -312,8 +318,9 @@ public partial class Form1 : Form
                         txtCampo2.Visible = true;
                     }
                     break;
-
+                  
                 case "Paralelogramo":
+                    //Para que el fondo se vea azulito al seleccionar el paralelogramo
                     this.BackColor = Color.LightCyan;
                     if (this.cmbCalculos.SelectedItem == "Perímetro")
                     {
@@ -336,14 +343,16 @@ public partial class Form1 : Form
 
     private void btnCalcular_Click(object sender, EventArgs e)
     {
-
+        //Validación de entrada para asegurarse de que se ingresen valores numéricos válidos
         try
         {
+            //Verificar que se haya seleccionado una figura y un cálculo antes de intentar calcular
             if (this.cmbCalculos.SelectedIndex != -1 && this.cmbFiguras.SelectedIndex != -1)
             {
+                //Realizar cálculos según la figura y el cálculo seleccionado
                 switch (this.cmbFiguras.SelectedItem)
                 {
-
+                    //Cálculos para el cuadrado
                     case "Cuadrado":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -358,7 +367,7 @@ public partial class Form1 : Form
                             txtResultado.Text = area.ToString();
                         }
                         break;
-
+                    //Cálculos para el triángulo
                     case "Triángulo":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -376,7 +385,7 @@ public partial class Form1 : Form
                             txtResultado.Text = area.ToString();
                         }
                         break;
-
+                    //Cálculos para el rectángulo
                     case "Rectángulo":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -393,7 +402,7 @@ public partial class Form1 : Form
                             txtResultado.Text = resultado.ToString();
                         }
                         break;
-
+                    //Cálculos para el rombo
                     case "Rombo":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -409,7 +418,7 @@ public partial class Form1 : Form
                             txtResultado.Text = resultado.ToString();
                         }
                         break;
-
+                    //Cálculos para el círculo
                     case "Círculo":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -424,7 +433,7 @@ public partial class Form1 : Form
                             txtResultado.Text = area.ToString();
                         }
                         break;
-
+                    //Cálculos para el trapecio
                     case "Trapecio":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -444,7 +453,7 @@ public partial class Form1 : Form
                             txtResultado.Text = area.ToString();
                         }
                         break;
-
+                    //Cálculos para el pentágono    
                     case "Pentágono":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -461,7 +470,7 @@ public partial class Form1 : Form
                             txtResultado.Text = area.ToString();
                         }
                         break;
-
+                    //Cálculos para el hexágono
                     case "Hexágono":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -478,7 +487,7 @@ public partial class Form1 : Form
                             txtResultado.Text = area.ToString();
                         }
                         break;
-
+                    //Cálculos para el paralelogramo
                     case "Paralelogramo":
                         if (this.cmbCalculos.SelectedItem == "Perímetro")
                         {
@@ -498,8 +507,10 @@ public partial class Form1 : Form
                 }
             }
         }
+        //Manejo de excepciones para capturar errores de formato al ingresar datos no numéricos
         catch (Exception ex)
         {
+            //Mostrar un mensaje de error al usuario indicando que se deben ingresar valores numéricos válidos
             MessageBox.Show("¡Cuidado! Asegúrate de ingresar valores numéricos válidos. Detalles del error: " + ex.Message, "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
